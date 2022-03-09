@@ -82,7 +82,7 @@ class post
     if($dbs) {
        return true;
     }
-    return "Có lỗi xảy ra ! Vui lòng thử lại sau";
+    return array("Có lỗi xảy ra ! Vui lòng thử lại sau");
   }
   static function destroy($id)
   {
@@ -136,7 +136,10 @@ class post
   }
   static function getPostByCategory($slug,$limit,$page)
   {
-    $category_id = Category::findBySlug($slug)->id;
+    $category = Category::findBySlug($slug);
+    if($category){
+      $category_id = $category->id;
+    }else return false;
     $db = DB::getDB();
     $result = DB::getDB()->query("SELECT count(post_id) AS id FROM post WHERE category_id = '$category_id'")->fetch_assoc();
     $query      = "SELECT * FROM post WHERE category_id = "." '$category_id' ORDER BY post_id DESC LIMIT ". (($page - 1) * $limit) . ", $limit";

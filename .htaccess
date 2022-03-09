@@ -9,5 +9,5 @@ RewriteRule ^contact.html$ index.php?controller=pages&action=contact
 RewriteRule ^contact index.php?controller=pages&action=contact
 RewriteRule ^about.html$ index.php?controller=pages&action=about
 RewriteRule ^category/([a-zA-Z0-9_-]+).html$ index.php?controller=pages&action=blog&category_slug=$1
-RewriteRule ^blog/([a-zA-Z0-9_-]+)-([0-9]+).html$ index.php?controller=pages&action=view_post&slug=$1&id=$2
+RewriteRule ^([a-zA-Z0-9_-]+)-([0-9]+).html$ index.php?controller=pages&action=view_post&slug=$1&id=$2
 RewriteRule ^banner/banner-([a-zA-Z0-9_-]+).html$ index.php?controller=pages&action=view_banner&id=$1
