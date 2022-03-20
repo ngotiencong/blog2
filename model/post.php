@@ -89,7 +89,6 @@ class post
 
     $db = DB::getDB();
     $dbs = $db->query("DELETE FROM post WHERE post_id = '$id'");
-    var_dump($dbs);
     if($dbs) {
       return true;
    }
@@ -112,7 +111,6 @@ class post
         $category_name = Category::find($item['category_id'])->name;
         $account_name = account::find($item['account_id'])->user;
         $list[] = new post($item['post_id'], $item['post_title'], $item['post_desc'], $item['post_image'], $item['post_content'], $item['post_slug'], $item['category_id'], $item['account_id'],$category_name,$account_name);
-        var_dump($list);
       }
       
       return array( 'list' => $list, 'total' => $totalPages);
