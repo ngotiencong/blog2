@@ -41,7 +41,10 @@
 <div class="col-md-12 col-sm-12 text-center">
     <nav aria-label="Page navigation example mt-5">
       <ul class="pagination justify-content-center">
-        <li class="page-item <?php if ($page <= 1) {
+        <li class="page-item <?php 
+        $next = $page + 1; 
+        $prev = $page - 1; 
+        if ($page <= 1) {
                                 echo 'disabled';
                               } ?>">
           <a class="page-link" href="<?php if ($page <= 1) {
